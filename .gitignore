@@ -28,9 +28,7 @@ backend/__pycache__/
 *.pyc
 .env
 
-# --- MACHINE LEARNING ASSETS (CRITICAL) ---
-# GitHub has a strict 100MB file limit. Attempting to push your similarity.pkl 
-# matrix will cause the entire upload to be violently rejected by the server.
+# Machine learning assets are not added as their size is too large for github
 *.pkl
 backend/movies.pkl
 backend/similarity.pkl
