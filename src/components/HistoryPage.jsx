@@ -4,12 +4,10 @@ import { Clock, Trash2, Film, Search } from 'lucide-react';
 export default function HistoryPage() {
   const [searchHistory, setSearchHistory] = useState([]);
 
-  // Retrieve the saved history from the browser's local storage the moment the component mounts
   useEffect(() => {
     const savedHistory = localStorage.getItem('movieSearchHistory');
     if (savedHistory) {
       try {
-        // Parse the JSON string back into a functional JavaScript array and update the local state
         setSearchHistory(JSON.parse(savedHistory));
       } catch (error) {
         console.error("An error occurred while attempting to parse the search history data:", error);
@@ -17,7 +15,6 @@ export default function HistoryPage() {
     }
   }, []);
 
-  // Provide a clean mechanism for the user to completely erase their saved historical data
   const clearHistory = () => {
     localStorage.removeItem('movieSearchHistory');
     setSearchHistory([]);

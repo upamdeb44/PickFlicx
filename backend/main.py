@@ -135,27 +135,24 @@ def verify_token(credentials: HTTPAuthorizationCredentials = Depends(security)):
 @app.post("/api/recommend")
 async def get_recommendations(request: RecommendationRequest, user: dict = Depends(verify_token)):
     try:
-        # Convert both the search query and the database titles to lowercase to find a match
         search_query = request.movie_title.lower().strip()
         matched_movies = movies[movies['title'].str.lower().str.strip() == search_query]
         
-        # If the resulting list is empty, the movie does not exist in the dataset
         if matched_movies.empty:
             raise HTTPException(status_code=404, detail="Movie not found in the database.")
             
-        # Get the index of the first matched movie
+        
         movie_index = matched_movies.index[0]
         
-        # Calculate the mathematical distances
         distances = similarity[movie_index]
-        movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:5]
+        movies_list = sorted(list(enumerate(distances)), reverse=True, key=lambda x: x[1])[1:9]
         
         results = []
         for i in movies_list:
             target_index = i[0]
             title = str(movies.iloc[target_index].title)
             
-            # Fetch live data from TMDB for each recommended movie
+            # Fetch live data from TMDB 
             tmdb_data = fetch_tmdb_metadata(title)
             
             results.append({

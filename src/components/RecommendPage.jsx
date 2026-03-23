@@ -7,10 +7,10 @@ export default function RecommendPage() {
   const [error, setError] = useState(null);
   const [searchQuery, setSearchQuery] = useState('Inception');
   
-  // We introduce a new state variable to dynamically track the user's saved movies across the application
+  
   const [favorites, setFavorites] = useState([]);
 
-  // The moment the component loads, we must immediately pull the existing favorites from the browser's memory
+  
   useEffect(() => {
     const savedFavorites = localStorage.getItem('movieFavorites');
     if (savedFavorites) {
@@ -22,22 +22,22 @@ export default function RecommendPage() {
     }
   }, []);
 
-  // This dedicated function handles the complex logic of adding or removing a movie from the local storage array
+  
   const toggleFavorite = (movieToToggle) => {
     let updatedFavorites;
     const isAlreadyFavorited = favorites.some((fav) => fav.id === movieToToggle.id);
 
     if (isAlreadyFavorited) {
-      // If the movie is already in the list, we filter it out to successfully "unlike" it
+      
       updatedFavorites = favorites.filter((fav) => fav.id !== movieToToggle.id);
     } else {
-      // If the movie is new, we spread the existing array and append the new cinematic object to the very front
+      
       updatedFavorites = [movieToToggle, ...favorites];
     }
 
-    // Update the local component state so the heart icon instantly changes color
+    
     setFavorites(updatedFavorites);
-    // Securely commit the newly updated array back into the browser's persistent memory
+    
     localStorage.setItem('movieFavorites', JSON.stringify(updatedFavorites));
   };
 
@@ -111,14 +111,14 @@ export default function RecommendPage() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mt-4">
         <div>
           <h1 className="text-3xl md:text-4xl font-bold">Top Recommendations</h1>
-          <p className="text-gray-400 mt-1">Curated specially for your unique taste profile by your custom model.</p>
+          <p className="text-gray-400 mt-1">Curated specially for your unique tastes.</p>
         </div>
         
         <div className="relative w-full md:w-72">
           <Search className="absolute left-4 top-3 text-gray-400 w-5 h-5" />
           <input 
             type="text" 
-            placeholder="Type a movie and press Enter..." 
+            placeholder="Search Away..." 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={handleSearch}

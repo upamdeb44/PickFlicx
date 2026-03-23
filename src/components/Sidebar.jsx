@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { Home, Compass, Dna, Clock, LogOut, Film, Heart } from 'lucide-react';
 
 export default function Sidebar({ onLogout }) {
-  // We define a reusable CSS configuration variable to keep the JSX extremely clean and strictly enforce visual consistency across all links.
   const navLinkClasses = ({ isActive }) =>
     `flex items-center gap-4 px-6 py-4 rounded-2xl transition-all duration-300 font-medium ${
       isActive
@@ -14,17 +13,17 @@ export default function Sidebar({ onLogout }) {
   return (
     <aside className="w-72 h-full bg-[#161b2a] border-r border-gray-800 flex flex-col shadow-2xl z-10 hidden md:flex">
       
-      {/* Cinematic Brand Header */}
+
       <div className="p-8 flex items-center gap-3 border-b border-gray-800/50">
         <div className="bg-gradient-to-br from-teal-400 to-blue-600 p-2.5 rounded-xl shadow-lg shadow-teal-900/20">
           <Film className="w-7 h-7 text-white" />
         </div>
         <h2 className="text-2xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400">
-          MovieBot
+          CinemIQ
         </h2>
       </div>
 
-      {/* Primary Navigation Links */}
+      
       <nav className="flex-1 px-4 py-8 flex flex-col gap-2 overflow-y-auto">
         <div className="text-xs font-bold text-gray-600 uppercase tracking-wider mb-2 px-4">
           Main Dashboard
@@ -58,14 +57,14 @@ export default function Sidebar({ onLogout }) {
           <span>Search History</span>
         </NavLink>
 
-        {/* The brand new navigation link pointing to the user's personalized movie collection */}
+
         <NavLink to="/favorites" className={navLinkClasses}>
           <Heart className="w-5 h-5" />
           <span>My Favorites</span>
         </NavLink>
       </nav>
 
-      {/* Secure Session Termination Section */}
+      
       <div className="p-6 border-t border-gray-800/50 mt-auto bg-[#0b0f19]/30">
         <button 
           onClick={onLogout}

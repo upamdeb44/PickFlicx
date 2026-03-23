@@ -16,7 +16,7 @@ export default function AuthPage({ setAuth }) {
     setSuccessMessage('');
 
     if (!isLogin) {
-      // --- THE NEW REGISTRATION FLOW ---
+      
       try {
         const response = await fetch('http://localhost:8000/api/register', {
           method: 'POST',
@@ -25,7 +25,7 @@ export default function AuthPage({ setAuth }) {
         });
 
         if (response.ok) {
-          // If successful, show a message, clear the password, and flip the UI to the Login state
+          
           setSuccessMessage("Account created successfully! Please sign in below.");
           setPassword('');
           setIsLogin(true);
@@ -38,7 +38,7 @@ export default function AuthPage({ setAuth }) {
         alert("Unable to connect to the server. Please ensure your Python backend is running.");
       }
     } else {
-      // --- THE EXISTING LOGIN FLOW ---
+      
       try {
         const response = await fetch('http://localhost:8000/api/login', {
           method: 'POST',
@@ -74,7 +74,7 @@ export default function AuthPage({ setAuth }) {
           {isLogin ? 'Enter your credentials to access the cinematic dashboard.' : 'Join the platform to curate your personalized movie library.'}
         </p>
         
-        {/* Dynamic Success Notification */}
+        
         {successMessage && (
           <div className="mb-6 bg-teal-900/30 border border-teal-500/50 p-4 rounded-2xl flex items-center gap-3 text-teal-400 text-sm font-medium">
             <CheckCircle className="w-5 h-5 flex-shrink-0" />
@@ -84,7 +84,7 @@ export default function AuthPage({ setAuth }) {
 
         <form onSubmit={handleSubmit} className="space-y-5">
           
-          {/* Active Sign Up Field: Full Name */}
+        
           {!isLogin && (
             <div className="relative">
               <User className="absolute left-4 top-4 text-gray-500 w-5 h-5" />
@@ -136,7 +136,7 @@ export default function AuthPage({ setAuth }) {
         <button 
           onClick={() => {
             setIsLogin(!isLogin);
-            setSuccessMessage(''); // Clear any success messages when toggling
+            setSuccessMessage(''); 
           }} 
           className="w-full text-center text-gray-400 mt-8 hover:text-teal-400 transition-colors text-sm font-medium"
         >

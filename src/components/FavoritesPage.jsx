@@ -4,7 +4,6 @@ import { Heart, Film, Star, Trash2 } from 'lucide-react';
 export default function FavoritesPage() {
   const [favorites, setFavorites] = useState([]);
 
-  // Retrieve the complete collection of liked movies the moment the user navigates to this page
   useEffect(() => {
     const savedFavorites = localStorage.getItem('movieFavorites');
     if (savedFavorites) {
@@ -16,7 +15,7 @@ export default function FavoritesPage() {
     }
   }, []);
 
-  // Allow the user to remove a movie from their library directly from this dashboard
+  //remove a movie
   const removeFavorite = (movieIdToRemove) => {
     const updatedFavorites = favorites.filter((movie) => movie.id !== movieIdToRemove);
     setFavorites(updatedFavorites);

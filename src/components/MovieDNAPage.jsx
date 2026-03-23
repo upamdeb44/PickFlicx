@@ -66,7 +66,7 @@ export default function MovieDNAPage() {
       <div className="flex flex-col border-b border-gray-800 pb-8">
         <h1 className="text-3xl md:text-5xl font-bold flex items-center gap-4 text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-blue-500">
           <Dna className="w-10 h-10 text-teal-400" />
-          Cinematic DNA Extractor
+          Cinema DNA Matching
         </h1>
       
       </div>
@@ -111,7 +111,7 @@ export default function MovieDNAPage() {
         </div>
       )}
 
-      {/* DNA Results Interface */}
+      
       {!isAnalyzing && dnaMatches.length > 0 && (
         <div className="mt-8 flex flex-col gap-8 animate-in fade-in slide-in-from-bottom-8 duration-700">
           
@@ -145,14 +145,14 @@ export default function MovieDNAPage() {
                       <span>Rating: {movie.rating} / 10</span>
                     </div>
                     
-                    {/* Visual Progress Bar to represent mathematical closeness */}
+                    
                     <div className="w-full bg-gray-800 rounded-full h-3 mb-1 overflow-hidden">
                       <div 
                         className="bg-gradient-to-r from-blue-600 to-teal-400 h-3 rounded-full" 
                         style={{ width: `${movie.matchPercentage}%` }}
                       ></div>
                     </div>
-                    <p className="text-right text-xs text-gray-500 font-mono mt-1">Cosine Similarity Vector Strength</p>
+                    <p className="text-right text-xs text-gray-500 font-mono mt-1">Similarity With Your Pick</p>
                   </div>
                 </div>
               ))}

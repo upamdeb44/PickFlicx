@@ -27,7 +27,7 @@ export default function DashboardHome() {
         >
           <div>
             <h2 className="text-2xl font-bold mb-1">Get Recommendations</h2>
-            <p className="text-[#a0d8d0] text-sm font-medium">Personalized picks from your ML model</p>
+            <p className="text-[#a0d8d0] text-sm font-medium">Personalized picks for you</p>
           </div>
           <div className="absolute bottom-6 right-6 bg-[#2dc9b4] p-3 rounded-full text-[#0f3d36] group-hover:scale-110 transition-transform duration-300 shadow-md">
             <Ticket className="w-7 h-7" /> 
@@ -41,7 +41,7 @@ export default function DashboardHome() {
         >
           <div>
             <h2 className="text-2xl font-bold mb-1">MovieDNA</h2>
-            <p className="text-[#a5e0b8] text-sm font-medium">Analyze your taste profile</p>
+            <p className="text-[#a5e0b8] text-sm font-medium">Analyze the movie and see it's match similarity</p>
           </div>
           <div className="absolute bottom-6 right-6 bg-[#4ade80] p-3 rounded-full text-[#144225] group-hover:scale-110 transition-transform duration-300 shadow-md">
             <Fingerprint className="w-7 h-7" />
