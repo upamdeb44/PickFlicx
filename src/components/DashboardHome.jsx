@@ -6,7 +6,6 @@ export default function DashboardHome() {
   return (
     <div className="w-full bg-[#0b0f19] text-white font-sans">
       
-      {/* The Greeting and Settings Header */}
       <div className="flex justify-between items-start mb-10 mt-4">
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight mb-2">Welcome Back, Explorer</h1>
